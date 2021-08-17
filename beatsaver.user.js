@@ -1,13 +1,13 @@
 // ==UserScript==
 // @name         BeatSaver AIOSaber Extension
 // @namespace    https://aiosaber.com
-// @version      0.0.1
-// @description  AIOSaber One-Click Buttons
+// @version      0.0.2
+// @description  AIOSaber One-Click
 // @author       AIOSaber
 // @match        https://beatsaver.com/*
 // @grant        none
-// @updateURL    https://github.com/AIOSaber/BeatSaver-Extension/raw/main/beatsaver.user.js
-// @downloadURL  https://github.com/AIOSaber/BeatSaver-Extension/raw/main/beatsaver.user.js
+// @updateURL    https://aiosaber.com/dl/beatsaver.extension.js
+// @downloadURL  https://aiosaber.com/dl/beatsaver.extension.js
 // ==/UserScript==
 
 (function() {
@@ -28,7 +28,8 @@
             }
         }
 
-        if (document.URL.toLowerCase() === "https://beatsaver.com/" || document.URL.toLowerCase().startsWith("https://beatsaver.com/profile/")) {
+        if (document.URL.toLowerCase() === "https://beatsaver.com/" || document.URL.toLowerCase().startsWith("https://beatsaver.com/profile/") ||
+            document.URL.toLowerCase().startsWith("https://beatsaver.com/?")) {
 
             let btns = document.querySelectorAll(".links > a");
             for(let i = 0; i < btns.length; i++) {
