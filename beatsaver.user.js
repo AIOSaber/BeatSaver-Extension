@@ -6,8 +6,8 @@
 // @author       AIOSaber
 // @match        https://beatsaver.com/*
 // @grant        none
-// @updateURL    https://aiosaber.com/dl/beatsaver.extension.js
-// @downloadURL  https://aiosaber.com/dl/beatsaver.extension.js
+// @updateURL    https://raw.githubusercontent.com/AIOSaber/BeatSaver-Extension/main/beatsaver.user.js
+// @downloadURL  https://raw.githubusercontent.com/AIOSaber/BeatSaver-Extension/main/beatsaver.user.js
 // ==/UserScript==
 
 (function() {
@@ -24,7 +24,7 @@
             let mapId = getMapIdUri();
             let element = document.getElementById("aio-btn-" + mapId);
             if (typeof element === 'undefined' || element == null) {
-                mapsPageSelector.innerHTML = '<a href="aiosaber://' + mapId + '" title="AIO One-Click" aria-label="AIO One-Click" id="aio-btn-' + mapId + '"><i class="fas fa-sync-alt text-info" aria-hidden="true"></i></a>' + mapsPageSelector.innerHTML;
+                mapsPageSelector.innerHTML = '<a href="aiosaber://' + mapId + '" title="AIO One-Click" aria-label="AIO One-Click" id="aio-btn-' + mapId + '"><i class="fas fa-meteor text-info" aria-hidden="true"></i></a>' + mapsPageSelector.innerHTML;
             }
         }
 
@@ -44,7 +44,7 @@
                 let mapId = split[split.length-1];
                 let element = document.getElementById("aio-btn-" + mapId);
                 if (typeof element === 'undefined' || element == null) {
-                    linksArray[i].innerHTML = '<a href="aiosaber://' + mapId + '" title="AIO One-Click" aria-label="AIO One-Click" id="aio-btn-' + mapId + '"><i class="fas fa-sync-alt text-info" aria-hidden="true"></i></a>' + linksArray[i].innerHTML;
+                    linksArray[i].innerHTML = '<a href="aiosaber://' + mapId + '" title="AIO One-Click" aria-label="AIO One-Click" id="aio-btn-' + mapId + '"><i class="fas fa-meteor text-info" aria-hidden="true"></i></a>' + linksArray[i].innerHTML;
                 }
             }
         }
