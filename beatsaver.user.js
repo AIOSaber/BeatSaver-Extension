@@ -6,21 +6,35 @@
 // @author       AIOSaber
 // @match        https://beatsaver.com/*
 // @match        https://scoresaber.com/*
-// @grant        none
+// @grant        GM_addElement
 // @updateURL    https://raw.githubusercontent.com/AIOSaber/BeatSaver-Extension/main/beatsaver.user.js
 // @downloadURL  https://raw.githubusercontent.com/AIOSaber/BeatSaver-Extension/main/beatsaver.user.js
-// @require https://code.jquery.com/jquery-2.1.4.min.js
-// @require https://raw.githubusercontent.com/kamranahmedse/jquery-toast-plugin/bd761d335919369ed5a27d1899e306df81de44b8/dist/jquery.toast.min.js
+// @connect      localhost
+// @require      https://code.jquery.com/jquery-2.1.4.min.js
+// @require      https://raw.githubusercontent.com/kamranahmedse/jquery-toast-plugin/bd761d335919369ed5a27d1899e306df81de44b8/dist/jquery.toast.min.js
 // ==/UserScript==
 
 function injectStylesheet(url) {
-    $('head').append('<link rel="stylesheet" href="' + url + '" type="text/css" />');
+    GM_addElement('link', {
+        rel: 'stylesheet',
+        href: url,
+        type: 'text/css'
+    });
+}
+
+function injectScript(url) {
+    GM_addElement('script', {
+        src: url,
+        type: 'text/javascript'
+    });
 }
 
 (function () {
     'use strict';
 
     injectStylesheet("https://cdn.rawgit.com/kamranahmedse/jquery-toast-plugin/bd761d335919369ed5a27d1899e306df81de44b8/dist/jquery.toast.min.css");
+    injectScript("https://code.jquery.com/jquery-2.1.4.min.js");
+    injectScript("https://raw.githubusercontent.com/kamranahmedse/jquery-toast-plugin/bd761d335919369ed5a27d1899e306df81de44b8/dist/jquery.toast.min.js");
 
     function toastWithColor(title, message, loaderBg, bgColor, textColor) {
         $.toast({
