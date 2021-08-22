@@ -24,7 +24,8 @@ function injectStylesheet(url) {
 
 function injectScript(url) {
     GM_addElement('script', {
-        src: url
+        src: url,
+        type: 'text/javascript'
     });
 }
 
