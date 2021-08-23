@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         BeatSaver AIOSaber Extension
 // @namespace    https://aiosaber.com
-// @version      0.1.0
+// @version      0.1.1
 // @description  AIOSaber One-Click
 // @author       AIOSaber
 // @match        https://beatsaver.com/*
@@ -128,13 +128,21 @@ GM_addStyle(`
     }
 
     function prependAioOneClickButtonBeatSaver(element, mapId) {
-        let aioButton;
+        let aioButton = document.createElement('a');
         if (getClientVersion() == null) {
-            aioButton = '<a href="aiosaber://' + mapId + '" title="AIO One-Click" aria-label="AIO One-Click" id="aio-btn-' + mapId + '"><i class="fas fa-meteor text-info" aria-hidden="true"></i></a>';
-            element.innerHTML = aioButton + element.innerHTML;
+            aioButton.href = "aiosaber://" + mapId;
+            aioButton.title = "AIO One-Click"
+            aioButton.id = "aio-btn-" + mapId;
+            aioButton.setAttribute("aria-label", "AIO One-Click");
+            aioButton.innerHTML = '<i class="fas fa-meteor text-info" aria-hidden="true"></i>';
+            element.insertBefore(aioButton, element.firstChild);
         } else {
-            aioButton = '<a href="#" title="AIO One-Click" aria-label="AIO One-Click" id="aio-btn-' + mapId + '""><i class="fas fa-meteor text-info" aria-hidden="true"></i></a>'
-            element.innerHTML = aioButton + element.innerHTML;
+            aioButton.href = "#aio";
+            aioButton.title = "AIO One-Click"
+            aioButton.id = "aio-btn-" + mapId;
+            aioButton.setAttribute("aria-label", "AIO One-Click");
+            aioButton.innerHTML = '<i class="fas fa-meteor text-info" aria-hidden="true"></i>';
+            element.insertBefore(aioButton, element.firstChild);
             document.getElementById("aio-btn-" + mapId).onclick = function () {
                 postAioClientMapInstall(mapId);
                 return false;
