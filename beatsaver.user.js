@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         BeatSaver AIOSaber Extension
 // @namespace    https://aiosaber.com
-// @version      0.0.4
+// @version      0.1.0
 // @description  AIOSaber One-Click
 // @author       AIOSaber
 // @match        https://beatsaver.com/*
@@ -99,7 +99,11 @@ GM_addStyle(`
         }
     }
 
+    let client_version = null;
     function getClientVersion() {
+        if (typeof client_version !== 'undefined' && client_version !== null) {
+            return client_version;
+        }
         let xhr = new XMLHttpRequest();
         xhr.open("GET", "http://localhost:2706/version", true);
         xhr.send();
